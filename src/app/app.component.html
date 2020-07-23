@@ -1,3 +1,4 @@
 <button (click)="checkForUpdate()" type="button">Check for Update.</button>
 <button (click)="installPwa()" type="button" *ngIf="showButton">Install Pwa</button>
-<p *ngFor="let msg of messages">{{msg | json}}</p>
+
+<app-logger></app-logger>

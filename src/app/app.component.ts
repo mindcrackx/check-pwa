@@ -11,7 +11,6 @@ export class AppComponent implements OnInit {
   title = 'pwa-check';
   deferredPrompt: any;
   showButton = false;
-  messages: any[];
 
   @HostListener('window:beforeinstallprompt', ['$event'])
   onbeforeinstallprompt(e): void {
@@ -23,10 +22,6 @@ export class AppComponent implements OnInit {
   }
 
   constructor(private updateService: UpdateService, private loggerService: LoggerService) {
-    this.messages = this.loggerService.messages;
-    this.loggerService.change.subscribe((message => {
-      this.messages.push();
-    }));
   }
 
   ngOnInit(): void { }

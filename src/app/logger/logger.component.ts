@@ -1,26 +1,21 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LoggerService } from '../service/logger.service';
+import { Messages } from '../model/messages';
 
 @Component({
   selector: 'app-logger',
   templateUrl: './logger.component.html',
   styleUrls: ['./logger.component.css']
 })
-export class LoggerComponent implements OnInit, OnDestroy {
+export class LoggerComponent implements OnInit {
 
-  messages: any[] = [];
+  messages: Messages;
   private subscription: any;
 
   constructor(private loggerService: LoggerService) {
-    //this.messages = this.loggerService.messages;
-    this.subscription = this.loggerService.change.subscribe((message) => {
-      this.messages.push(message);
-    });
+    this.messages = this.loggerService.messages;
   }
 
   ngOnInit(): void {
-  }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }

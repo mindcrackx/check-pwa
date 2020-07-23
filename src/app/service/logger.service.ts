@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Messages } from '../model/messages';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoggerService {
 
-  messages: any[] = [];
-  change: Subject<any> = new Subject<any>();
+  messages: Messages = new Messages();
 
   constructor() { }
 
   log(message: any) {
-    this.messages.push(message);
-    this.change.next(message);
+    this.messages.messages.push(message);
   }
 
 }
